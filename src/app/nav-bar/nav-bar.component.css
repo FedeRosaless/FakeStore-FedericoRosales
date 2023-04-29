@@ -1,0 +1,102 @@
+.title h1 {
+  display:flex;
+  font-family:Arial, Helvetica, sans-serif;
+  justify-content:center;
+  width: 200px;
+  cursor: pointer;
+}
+
+.navbar_container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.navBar {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  max-width: 700px;
+  box-shadow: 0 20px 20px #0000000a;
+}
+
+.input {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.input svg {
+  width: 1.4rem;
+  color: #aaa;
+}
+
+.input input {
+  outline: none !important;
+  background: 0;
+  border: 0;
+  font-size: 1rem;
+}
+
+.wlcme {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+}
+
+.rigth {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  justify-content: right;
+}
+
+.btn button {
+  position: relative;
+  padding: 10px;
+  color: #fff;
+  border-radius: 3px;
+  border: 0;
+  transition: .2s ease-in-out;
+  background-color: rgba(43, 57, 255, 0.61);
+  cursor: pointer;
+}
+
+.btn button:hover {
+  background-color: rgba(43, 57, 255, 0.808);
+  transition: .2s ease-in-out;
+}
+
+.btn svg {
+  width: 1.4rem;
+}
+
+.btn .total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: rgb(233, 34, 34);
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
+
+.totalCero {
+  display: none;
+}

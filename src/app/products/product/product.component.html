@@ -1,0 +1,23 @@
+<ng-container *ngFor="let payload of productsList">
+<div class="card">
+  <div class="cardInfo">
+    <img class="image" [src]="payload?.image" alt="">
+
+    <div class="productInfo">
+
+      <div>
+        <h3 class="productName">{{payload?.title}}</h3>
+
+        <p class="productDesc">{{payload?.description}}</p>
+
+        <p>${{payload?.price}}</p>
+      </div>
+
+
+      <button class="button" (click)="addToCart(payload)">
+        Add to cart
+      </button>
+    </div>
+  </div>
+</div>
+</ng-container>
