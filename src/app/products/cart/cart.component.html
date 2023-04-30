@@ -9,7 +9,15 @@
     </button>
   </div>
   <div class="title">
-    <h2>My Cart</h2></div>
+    <h2>My Cart</h2>
+<div>
+    <strong>Grand Total: ${{grandTotal}}</strong>
+  </div>
+
+    <div class="cleanBtn">
+      <button (click)="emptyCart()">Delete all</button>
+    </div>
+  </div>
   </div>
 <ng-container *ngFor="let payload of product">
   <div class="card">
@@ -31,9 +39,6 @@
   </div>
 </ng-container>
 
-<div class="cleanBtn">
-  <button (click)="emptyCart()">Delete all</button>
-</div>
 </ng-container>
 
 

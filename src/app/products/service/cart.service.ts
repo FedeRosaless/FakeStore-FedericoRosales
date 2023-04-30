@@ -11,6 +11,10 @@ export class CartService {
   constructor() {}
 
   getProducts() {
+    const cart = localStorage.getItem('cart');
+    if (!cart) {
+      localStorage.setItem('cart', this.cartItemList);
+    }
     return this.productList.asObservable();
   }
 
@@ -26,9 +30,9 @@ export class CartService {
   }
 
   getTotalPrice(): number {
-    let grandTotal = 0;
+    let grandTotal: number = 0;
     this.cartItemList.map((a: any) => {
-      grandTotal + -a.total;
+      grandTotal += a.price;
     });
     return grandTotal;
   }

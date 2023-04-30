@@ -25,10 +25,6 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadInfo();
-
-    this.productsList.forEach((a: any) => {
-      Object.assign(a, { quantity: 1, total: a.price });
-    });
   }
 
   addToCart(payload: any) {
