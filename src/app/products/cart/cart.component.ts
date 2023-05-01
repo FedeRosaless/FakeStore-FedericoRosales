@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -9,13 +10,16 @@ import { CartService } from '../service/cart.service';
 export class CartComponent implements OnInit {
   public product: any = [];
   public grandTotal: number = 0;
+  public subscription: Subscription = new Subscription();
   constructor(private CartService: CartService) {}
 
   ngOnInit(): void {
-    this.CartService.getProducts().subscribe((res) => {
-      this.product = res;
-      this.grandTotal = this.CartService.getTotalPrice();
-    });
+    this.subscription = this.CartService.getProducts().subscribe(
+      (cart: any) => {
+        this.product = [...cart.items];
+        this.grandTotal = cart.totalPrice.toFixed(2);
+      }
+    );
   }
 
   removeItem(payload: any) {
@@ -24,5 +28,13 @@ export class CartComponent implements OnInit {
 
   emptyCart() {
     this.CartService.removeAllcart();
+  }
+
+  totalMinus(payload: any) {
+    this.CartService.totalMinus(payload).subscribe();
+  }
+
+  totalPlus(payload: any) {
+    this.CartService.totalPlus(payload).subscribe();
   }
 }

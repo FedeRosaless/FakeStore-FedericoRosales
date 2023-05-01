@@ -1,4 +1,4 @@
-<ng-container *ngIf="product.length !=0">
+<ng-container *ngIf="product.length > 0">
 <div class="head">
   <div class="backBtn">
     <button  routerLink="/products">
@@ -27,7 +27,23 @@
     <div class="card-info">
       <h3>{{payload.title}}</h3>
       <p class="desc">{{payload.description}}</p>
-      <p>${{payload.price}}</p>
+      <div class="bottom-card">
+        <p>${{payload.price}}</p>
+        <div class="counter">
+          <button (click)="totalMinus(payload)">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6667 10.8333L3.33333 10.8333C2.8731 10.8333 2.5 10.4602 2.5 10C2.5 9.53977 2.8731 9.16667 3.33333 9.16667L16.6667 9.16667C17.1269 9.16667 17.5 9.53977 17.5 10C17.5 10.4602 17.1269 10.8333 16.6667 10.8333Z" fill="#AAAAAA"/>
+            </svg>
+          </button>
+          <span>{{payload.total}}</span>
+          <button (click)="totalPlus(payload)">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 10C2.5 9.53977 2.8731 9.16667 3.33333 9.16667H16.6667C17.1269 9.16667 17.5 9.53977 17.5 10C17.5 10.4602 17.1269 10.8333 16.6667 10.8333H3.33333C2.8731 10.8333 2.5 10.4602 2.5 10Z" fill="#AAAAAA"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99992 2.5C10.4602 2.5 10.8333 2.8731 10.8333 3.33333L10.8333 16.6667C10.8333 17.1269 10.4602 17.5 9.99992 17.5C9.53968 17.5 9.16658 17.1269 9.16658 16.6667L9.16659 3.33333C9.16659 2.8731 9.53968 2.5 9.99992 2.5Z" fill="#AAAAAA"/>
+            </svg>
+          </button>
+        </div>
+        </div>
     </div>
     <div class="buttonDelete">
       <button (click)="removeItem(payload)">
